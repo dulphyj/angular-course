@@ -1,60 +1,59 @@
 # OnlineStore
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+This project is a simple online store application built using **Angular**, **Firebase**, and **Bootstrap**.
 
-## Development server
+## Technologies Used
 
-To start a local development server, run:
+- **Angular**: Framework for building the frontend of the application.
+- **Firebase**: Used for backend services such as authentication and data storage.
+- **Bootstrap**: For styling the user interface and creating a responsive design.
 
+## Instructions
 
-```bash
-ng serve
-```
+1. Clone this repository to your local machine.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+   ```bash
+   git clone <repository-url>
+   ```
 
-## Code scaffolding
+2. Install the required dependencies:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+   ```bash
+   npm install
+   ```
 
-```bash
-ng generate component component-name
-```
+3. Set up Firebase:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+   - Create a project in [Firebase Console](https://console.firebase.google.com/).
+   - Obtain your Firebase project's credentials and add them to the `src/environments/environment.ts` file:
 
-```bash
-ng generate --help
-```
+     ```typescript
+     export const environment = {
+       production: false,
+       firebaseConfig: {
+         apiKey: "YOUR_API_KEY",
+         authDomain: "YOUR_AUTH_DOMAIN",
+         projectId: "YOUR_PROJECT_ID",
+         storageBucket: "YOUR_STORAGE_BUCKET",
+         messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+         appId: "YOUR_APP_ID"
+       }
+     };
+     ```
 
-## Building
+4. Start the development server:
 
-To build the project run:
+   ```bash
+   ng serve
+   ```
 
-```bash
-ng build
-```
+   The application will be available at [http://localhost:4200](http://localhost:4200).
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Description
 
-## Running unit tests
+This app is designed to simulate a simple online store where users can view products and make purchases. It integrates with Firebase for authentication and data storage, and uses Bootstrap for a responsive design.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Notes
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Firebase tokens need to be configured in `src/environments/environment.ts` for proper functionality.
+- The app is a simple example to demonstrate integrating Angular with Firebase and Bootstrap for creating real-world applications.
