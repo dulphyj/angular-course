@@ -1,0 +1,13 @@
+<div class="container mt-3">
+    <h3 class="text-warning">Product List</h3>
+
+    <div>
+        <button class="btn btn-primary my-5" (click)="addProduct()">Add Product</button>
+    </div>
+
+    <ul class="list-group w-50 mx-auto">
+        @for(key of getKeys(); track key){
+        <app-product [product]="products[key]" [key]="key"></app-product>
+        }
+    </ul>
+</div>
