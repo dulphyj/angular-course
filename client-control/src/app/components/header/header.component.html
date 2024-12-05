@@ -10,22 +10,45 @@
 
         <!-- navigation bar links -->
         <div class="collapse navbar-collapse" id="navbarCollapse">
+            <!-- dropdown menu if user is login -->
+            @if(isLogIn){
             <ul class="navbar-nav me-auto">
                 <li class="nav-item px-2">
                     <a class="nav-link" [routerLink]="['/']">Router 1</a>
                 </li>
+            </ul>
+            }
+
+            <ul class="navbar-nav">
+                @if(isLogIn){
                 <li class="nav-item px-2">
                     <a class="nav-link" [routerLink]="['/']">
                         <i class="bi bi-person-circle"></i>Welcome
                     </a>
                 </li>
+                }
+                @if(!isLogIn){
+                <li class="nav-item px-2">
+                    <a [routerLink]="['/login']" class="nav-link">
+                        <i class="bi bi-person"></i> Login
+                    </a>
+                </li>
+                }
+                @if(isLogIn){
+                <li class="nav-item px-2">
+                    <a style="cursor: pointer" (click)="logOut()" class="nav-link">
+                        <i class="bi bi-box-arrow-right"></i>Log Out
+                    </a>
+                </li>
+                }
             </ul>
         </div>
 
-        <!-- search bar -->
         <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <!-- search bar 
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>-->
+
         </form>
     </div>
 </nav>
