@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Client } from '../model/client.model';
-import { addDoc, collection, collectionData, Firestore, orderBy, query } from '@angular/fire/firestore';
+import { addDoc, collection, collectionData, deleteDoc, doc, docData, Firestore, orderBy, query, updateDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +23,20 @@ export class ClientService {
 
   addClient(client: Client) {
     return addDoc(this.clientsRef, client)
+  }
+
+  getClient(id: string): Observable<Client | null> {
+    const clientDoc = doc(this.firestore, `clients/${id}`)
+    return docData(clientDoc, { idField: 'id' }) as Observable<Client>
+  }
+
+  updateClient(client: Client) {
+    const clientDoc = doc(this.firestore, `clients/${client.id}`)
+    return updateDoc(clientDoc, { ...client })
+  }
+
+  deleteClient(client: Client) {
+    const clientDoc = doc(this.firestore, `clients/${client.id}`)
+    return deleteDoc(clientDoc)
   }
 }
